@@ -8,9 +8,19 @@
 .logo-2 {
     color: #ffffff;
     font-size: 25px;
-    font-weight: normal;
+    font-weight: lighter;
 }
 
 .navbar {
     background-color: #1a1a1a;
+}
+
+.nav-link {
+    color: #ffffff;
+}
+
+.sec-navbar {
+    margin-top: 0px;
+    height: 30px;
+    background-color: #363636;
 }
