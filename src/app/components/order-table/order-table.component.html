@@ -12,22 +12,31 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><input class="checkbox" type="checkbox"></td>
-            <th scope="row">Celular</th>
-            <td>22/02/2024</td>
-            <td>27/02/2024</td>
-            <td>Câmera não funcionando.</td>
-            <td>João</td>
-            <td>Finalizado</td>
-            <td>
-                <div class="menu">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </td> <!-- Menu -->
-        </tr>
-     
+        @for(order of orders; track order.id) {
+            <tr>
+                <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                <th scope="row">{{order.equipment}}</th>
+                <td>{{order.start}}</td>
+                <td>{{order.delivery}}</td>
+                <td>{{order.problem}}</td>
+                <td>{{order.employee}}</td>
+                @if(order.status === "Em andamento") {
+                    <td class="text-warning">{{order.status}}</td>
+                } @else {
+                    <td class="text-success">{{order.status}}</td>
+                }
+                <td>
+                    <div class="menu">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </td>
+            </tr>
+        } @empty {
+            <tr>
+                <td colspan="8">Nenhum pedido encontrado</td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -6,6 +6,14 @@
     min-width: 1273px;
 } 
 
+.order-table tbody tr:nth-child(odd) {
+    background-color: #333333;
+}
+
+.order-table tbody tr:nth-child(even) {
+    background-color: #555555;
+}
+
 .order-table thead tr {
     height: 100%;
     width: 100%;
@@ -14,8 +22,9 @@
     border-bottom: #ffffff 1px solid;
 }
 
-.checkbox:checked:before {
-    background-color: green;
+.form-check-input {
+    background-color: transparent;
+    margin-right: -50px;
 }
 
 .order-table th, .order-table td {
