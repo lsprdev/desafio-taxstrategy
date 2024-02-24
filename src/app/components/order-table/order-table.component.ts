@@ -56,4 +56,12 @@ export class OrderTableComponent {
       status: 'Finalizado'
     },
   ];
+
+  getInProcessOrders() {
+    return this.orders.length > 0 ? this.orders.filter(order => order.status === 'Em andamento') : [];
+  }
+
+  getFinishedOrders() {
+    return this.orders.length > 0 ? this.orders.filter(order => order.status === 'Finalizado') : [];
+  }
 }

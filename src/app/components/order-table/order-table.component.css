@@ -43,3 +43,11 @@
     height: 2px;
     background: #ffffff;
 }
+
+.vr {
+    width: 1px;
+    height: 25px;
+    margin: 0 10px;
+    background: #ffffff;
+    opacity: 0.8;
+}
