@@ -12,6 +12,4 @@ import { StrokeButtonComponent } from '../stroke-button/stroke-button.component'
 export class ButtonComponent {
   @Input({ required: true }) buttonString: string = '';
   @Input({ required: true }) buttonType: string = 'full' || 'stroke';
-  @Input({ required: true }) buttonColor: string = '';
-  @Input({ required: true }) buttonTextColor: string = '';
 }

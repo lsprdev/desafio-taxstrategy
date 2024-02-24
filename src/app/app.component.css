@@ -1,9 +1,5 @@
 
-html {
-    background-color: #333333;
-}
-
-main {
+body {
     background-color: #333333;
 }
 
@@ -11,5 +7,12 @@ main {
     font-family: "Nunito Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: bold;
+    font-style: normal;
+}
+
+.nunito-sans-300 {
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
     font-style: normal;
 }
