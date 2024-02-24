@@ -20,7 +20,6 @@ export class NavbarComponent {
   ngOnInit() {
     this.router.events.subscribe(data => {
       if (data instanceof ActivationStart) {
-        console.log(data.snapshot.url[0]["path"]);
         if (data.snapshot.url.length === 0) {
           this.url = "/login"
         } else {
