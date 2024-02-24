@@ -10,9 +10,12 @@
         </button>
         <div class="flex-row-reverse collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <app-button class="m-4" buttonString="Adicionar" buttonType="full"></app-button>
+                <app-button class="m-4" buttonString="Adicionar" buttonType="full" (click)='open(addOrder)'></app-button>
             </ul>
         </div>
         }
+        <ng-template #addOrder let-modal>
+                <app-add-order-modal class="app-order"></app-add-order-modal>
+        </ng-template>
     </div>
 </nav>

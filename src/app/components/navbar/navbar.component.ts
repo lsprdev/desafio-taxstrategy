@@ -4,18 +4,24 @@ import { ActivationStart, RouterOutlet } from '@angular/router';
 import { FullButtonComponent } from '../buttons/full-button/full-button.component';
 import { StrokeButtonComponent } from '../buttons/stroke-button/stroke-button.component';
 import { ButtonComponent } from '../buttons/button/button.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddOrderModalComponent } from '../modals/add-order-modal/add-order-modal.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [FullButtonComponent, StrokeButtonComponent, ButtonComponent],
+  imports: [FullButtonComponent, StrokeButtonComponent, ButtonComponent, AddOrderModalComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  constructor(private router: Router, private modalService: NgbModal) { }
+  
   url: string = "";
-
-  constructor(private router: Router) { }
+  
+  public open(modal: any): void {
+    this.modalService.open(modal, { centered: true, animation: false });
+  }
 
   ngOnInit() {
     this.router.events.subscribe(data => {

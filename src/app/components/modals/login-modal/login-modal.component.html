@@ -1,6 +1,6 @@
 <div class="login-box">
     <div class="m-5">
-        <h2 class="text-left nunito-sans">Entrar</h2>
+        <h2 class="nunito-sans">Entrar</h2>
         <p class="lighter-text nunito-sans">Bem-vindo de volta!</p>
         <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
             <div class="form-group">
@@ -17,8 +17,8 @@
                 [(ngModel)]="admin.remember" ngModel>
                 <label class="lighter-text form-check-label nunito-sans-300" for="rememberMe">Lembrar de mim</label>
             </div>
-            <div class="text-center mt-4">
-                <app-button type="submit" buttonString="Entrar" buttonType="full"></app-button>
+            <div class="text-center mt-5">
+                <app-button class="mt-2" type="submit" buttonString="Entrar" buttonType="full"></app-button>
             </div>
         </form>
     </div>

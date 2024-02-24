@@ -1,8 +1,17 @@
-.stroke-button {
+.stroke-button-orange {
     height: 48px;
     width: 157px;
     color: #FF8842;
     border-radius: 24px;
     background-color: transparent;
     border: 1px solid #FF8842;
+}
+
+.stroke-button-grey {
+    height: 48px;
+    width: 157px;
+    color: #737373;
+    border-radius: 24px;
+    background-color: transparent;
+    border: 1px solid #737373;
 }

@@ -1,1 +1,6 @@
-<button id="strokeButton" class="m-4 stroke-button nunito-sans">{{ buttonString }}</button>
+@if (buttonString === 'Cancelar') {
+    <button id="strokeButton" class="stroke-button-grey nunito-sans">{{ buttonString }}</button>
+}
+@else {
+    <button id="strokeButton" class="stroke-button-orange nunito-sans">{{ buttonString }}</button>
+}
