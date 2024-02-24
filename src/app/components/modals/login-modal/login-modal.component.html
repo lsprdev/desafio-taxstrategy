@@ -5,16 +5,16 @@
         <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
             <div class="form-group">
                 <input type="email" class="form-control p-3 nunito-sans" id="email" placeholder="Email" name="email"  
-                [(ngModel)]="person.email" ngModel>
+                [(ngModel)]="admin.email" ngModel>
             </div>
             <br>
             <div class="form-group">
                 <input type="password" class="form-control p-3 nunito-sans" id="pwd" placeholder="Senha" name="password"  
-                [(ngModel)]="person.password" ngModel>
+                [(ngModel)]="admin.password" ngModel>
             </div>
             <div class="mt-2 ms-1 form-group form-check">
                 <input type="checkbox" class="form-check-input" id="rememberMe" name="remember" 
-                [(ngModel)]="person.remember" ngModel>
+                [(ngModel)]="admin.remember" ngModel>
                 <label class="lighter-text form-check-label nunito-sans-300" for="rememberMe">Lembrar de mim</label>
             </div>
             <div class="text-center mt-4">

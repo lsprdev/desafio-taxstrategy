@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonComponent } from '../../buttons/button/button.component';
 import { FullButtonComponent } from '../../buttons/full-button/full-button.component';
 import { StrokeButtonComponent } from '../../buttons/stroke-button/stroke-button.component';
@@ -13,13 +13,12 @@ import { Router } from '@angular/router';
   styleUrl: './login-modal.component.css'
 })
 export class LoginModalComponent {
-  constructor(private router: Router) { }
-
-  person = {
+  admin = {
     email: '',
     password: '',
     remember: false
   };
+  constructor(private router: Router) { }
 
   onSubmit(form: NgForm) {
     console.log('Your form data : ', form.value);
