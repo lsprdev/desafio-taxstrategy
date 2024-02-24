@@ -1,0 +1,13 @@
+@if(buttonType === "full") {
+    <app-full-button 
+        buttonString={{buttonString}} 
+        buttonColor={{buttonColor}}
+        buttonTextColor={{buttonTextColor}}>
+    </app-full-button>
+} @else {
+    <app-stroke-button 
+        buttonString={{buttonString}} 
+        buttonColor={{buttonColor}} 
+        buttonTextColor={{buttonTextColor}}>
+    </app-stroke-button>
+}

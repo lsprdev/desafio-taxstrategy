@@ -1,26 +1,15 @@
 
-.logo-1 {
-    color: #f7955b;
-    font-size: 25px;
+html {
+    background-color: #333333;
+}
+
+main {
+    background-color: #333333;
+}
+
+.nunito-sans {
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
     font-weight: bold;
-}
-
-.logo-2 {
-    color: #ffffff;
-    font-size: 25px;
-    font-weight: lighter;
-}
-
-.navbar {
-    background-color: #1a1a1a;
-}
-
-.nav-link {
-    color: #ffffff;
-}
-
-.sec-navbar {
-    margin-top: 0px;
-    height: 30px;
-    background-color: #363636;
+    font-style: normal;
 }

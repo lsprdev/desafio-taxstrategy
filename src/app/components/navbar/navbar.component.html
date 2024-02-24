@@ -1,22 +1,16 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <div class="p-2 mb-2 ms-3 navbar-brand">
-            <a class="text-decoration-none logo-1" href="#">Repair</a>
-            <a class="text-decoration-none logo-2" href="#">Strategy</a>
-        </div>
+        <img class="m-4 navbar-brand" height="38px" width="249" src="assets/tax.svg">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Painel de Manutenções</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Funcionários</a>
-                </li>
-            </ul>
-        </div>
+        @if(url !== "login") {
+            <div class=" flex-row-reverse collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <app-button buttonString="Adicionar" buttonType="full" buttonColor="#FF8842" buttonTextColor="#fff"></app-button>
+                </ul>
+            </div>
+        }
     </div>
 </nav>
