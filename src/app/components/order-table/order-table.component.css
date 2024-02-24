@@ -1,0 +1,36 @@
+.order-table {
+    color: #ffffff;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 1273px;
+} 
+
+.order-table thead tr {
+    height: 100%;
+    width: 100%;
+    color: #ffffff;
+    text-align: left;
+    border-bottom: #ffffff 1px solid;
+}
+
+.checkbox:checked:before {
+    background-color: green;
+}
+
+.order-table th, .order-table td {
+    padding: 12px 15px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 12px;
+}
+
+.menu div {
+    width: 2px;
+    height: 2px;
+    background: #ffffff;
+}
