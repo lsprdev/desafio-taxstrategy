@@ -1,0 +1,17 @@
+.login-box {
+    width: 553px;
+    height: 531px;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+}
+
+.lighter-text {
+    color: #939393;
+}
+
+.form-check-input {
+    border-color: #b6b6b6;
+}
