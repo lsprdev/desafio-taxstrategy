@@ -16,3 +16,13 @@ model User {
   password String
   isAdmin Boolean @default(false)
 }
+
+model Order {
+  id String  @id @default(auto()) @map("_id") @db.ObjectId
+  equipment String
+  startDate DateTime
+  deliveryDate DateTime
+  problemDescription String
+  personInCharge String?
+  status String
+}
