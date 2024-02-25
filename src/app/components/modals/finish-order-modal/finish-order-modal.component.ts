@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonComponent } from '../../buttons/button/button.component';
 
 @Component({
@@ -9,5 +9,7 @@ import { ButtonComponent } from '../../buttons/button/button.component';
   styleUrl: './finish-order-modal.component.css'
 })
 export class FinishOrderModalComponent {
-
+  onCancel() {
+    console.log('bla')
+  }
 }

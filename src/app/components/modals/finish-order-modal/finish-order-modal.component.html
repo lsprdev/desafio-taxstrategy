@@ -1,6 +1,6 @@
 <div class="login-box">
     <div class="m-5">
-        <h2 class="nunito-sans">Finalizar serviço </h2>
+        <h2 class="nunito-sans">Finalizar serviço</h2>
         <form>
             <div class="form-group mt-3">
                 <label class="nunito-sans mb-1" for="description">Descrição do serviço</label>
@@ -13,10 +13,10 @@
             </div>
             <div class="d-flex flex-row-reverse text-center mt-5">
                 <div class="m-2">
-                    <app-button type="submit" buttonString="Salvar" buttonType="stroke"></app-button>
+                    <app-button buttonString="Salvar" buttonType="stroke"></app-button>
                 </div>
                 <div class="m-2">
-                    <app-button type="cancel" buttonString="Cancelar" buttonType="stroke"></app-button>
+                    <app-button buttonString="Cancelar" buttonType="stroke" (click)='onCancel()'></app-button>
                 </div>
             </div>
         </form>
