@@ -28,6 +28,10 @@ export class OrderTableComponent {
     this.modalService.open(modal, { centered: true, animation: false });
   }
 
+  public close(modal: any): void {
+    this.modalService.dismissAll(modal);
+  }
+
   // Equipamento(TV, Celular, Desktop, Monitor, Notebook), Início, Previsão de  entrega, Problema apresentado, Funcionário responsável, Status.
   orders = mockOrders();
   
@@ -110,5 +114,10 @@ export class OrderTableComponent {
       this.closeContextMenu();
     }
     this.selectedRowIds.clear();
+  }
+
+  onCancel(modal: any) {
+    this.close(modal);
+    this.closeContextMenu();
   }
 }
