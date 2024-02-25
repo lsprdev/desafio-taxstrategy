@@ -53,18 +53,26 @@
     <div class="wrapper">
         <div class="content">
             <ul class="menu">
-                <li class="item" (click)="onOrderView(orderView)">
-                    <i class="uil uil-eye"></i>
-                    <span class="nunito-sans-300">Ver mais</span>
-                </li>
+                @if(selectedRowIds.size > 1) {
+                   
+                } @else {
+                    <li class="item" (click)="onOrderView(orderView)">
+                        <i class="uil uil-eye"></i>
+                        <span class="nunito-sans-300">Ver mais</span>
+                    </li>
+                }
                 <li class="item" (click)="onOrderChangeResponsable()">
                     <i class="uil uil-link-alt"></i>
                     <span class="nunito-sans-300">Alterar responsável</span>
                 </li>
-                <li class="item" (click)="onOrderFinish()">
-                    <i class="uil uil-check"></i>
-                    <span class="nunito-sans-300">Finalizar</span>
-                </li>
+                @if(selectedRowIds.size > 1) {
+                
+                } @else {
+                    <li class="item" (click)="onOrderFinish()">
+                        <i class="uil uil-check"></i>
+                        <span class="nunito-sans-300">Finalizar</span>
+                    </li>
+                }
                 <li class="item" (click)="onOrderDelete()">
                     <i class="uil uil-trash-alt"></i>
                     <span class="nunito-sans-300">Delete</span>

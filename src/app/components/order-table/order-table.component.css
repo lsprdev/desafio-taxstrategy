@@ -63,14 +63,15 @@
 .wrapper {
     position: absolute;
     width: 250px;
-    height: 167px;
+    height: auto;
     border-radius: 5px;
     background: #fff;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
 }
 
 .wrapper .menu {
-    padding: 10px 12px;
+    margin-bottom: -1px;
+    padding: 12px;
 }
 
 .content .item {
@@ -99,4 +100,8 @@
     position: relative;
     right: 85px;
     background-color: #333333;
+}
+
+.disabled-button {
+    background-color: #757575;
 }
