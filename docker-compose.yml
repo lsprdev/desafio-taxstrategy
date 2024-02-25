@@ -8,3 +8,33 @@ services:
     ports:
       - 8000:4200
     
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    networks:
+      - nestnet
+  db:
+    build: 
+      context: ./backend/db
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: db
+      MONGO_REPLICA_HOST: db
+      MONGO_REPLICA_PORT: "27017"
+    ports:
+      - 27017:27017
+    networks:
+      - nestnet
+
+networks:
+  nestnet:
+    driver: bridge
