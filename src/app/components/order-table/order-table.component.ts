@@ -72,4 +72,28 @@ export class OrderTableComponent {
     };
   }
 
+  onOrderView() {
+    console.log(this.currentOrder.id);
+  }
+
+  onOrderChangeResponsable() {
+    console.log(this.currentOrder.id);
+  }
+  
+  onOrderFinish() {
+    console.log(this.currentOrder.id);
+  }
+
+  onOrderDelete() {
+    if(this.selectedRowIds.size > 0) {
+      this.selectedRowIds.forEach(selected => {
+        this.orders = this.orders.filter(order => order.id !== selected);
+        this.closeContextMenu();
+      });
+    } else {
+      this.orders = this.orders.filter(x => x.id !== this.currentOrder.id); 
+      this.closeContextMenu();
+    }
+    this.selectedRowIds.clear();
+  }
 }

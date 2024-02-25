@@ -21,7 +21,7 @@
     <tbody>
         @if(orders.length === 0) {
             <tr>
-                <td colspan="8" class="text-center">Nenhuma ordem de serviço cadastrada</td>
+                <td colspan="8" class="text-center">Nenhuma ordem de serviço cadastrada.</td>
             </tr>
         } @else {
             @for(order of orders; track order.id) {
@@ -50,8 +50,26 @@
     </tbody>
 </table>
 <div id="contextmenu" class="contextmenu" [ngStyle]="rightPanelStyle" (appClickOutside)="closeContextMenu()">
-    <ul>
-        <li>{{ currentOrder.equipment }}</li>
-        <li>{{ currentOrder.status }}</li>
-    </ul>
+    <div class="wrapper">
+        <div class="content">
+            <ul class="menu">
+                <li class="item" (click)="onOrderView()">
+                    <i class="uil uil-eye"></i>
+                    <span class="nunito-sans-300">Ver mais</span>
+                </li>
+                <li class="item" (click)="onOrderChangeResponsable()">
+                    <i class="uil uil-link-alt"></i>
+                    <span class="nunito-sans-300">Alterar responsável</span>
+                </li>
+                <li class="item" (click)="onOrderFinish()">
+                    <i class="uil uil-check"></i>
+                    <span class="nunito-sans-300">Finalizar</span>
+                </li>
+                <li class="item" (click)="onOrderDelete()">
+                    <i class="uil uil-trash-alt"></i>
+                    <span class="nunito-sans-300">Delete</span>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
