@@ -1,0 +1,26 @@
+.login-box {
+    position: relative;
+    right: 15px;
+    width: 701px;
+    height: 700px;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.lighter-text {
+    color: #939393;
+}
+
+.form-check-input {
+    border-color: #b6b6b6;
+}
+
+textarea {
+    resize: none;
+}
+
+.date-input {
+    width: 260px;
+}

@@ -59,12 +59,12 @@
                         <span class="nunito-sans-300">Ver mais</span>
                     </li>
                 } 
-                <li class="item" (click)="onOrderChangeResponsable(ResponsableOrder)">
+                <li class="item" (click)="onOrderChangeResponsable(responsableOrder)">
                     <i class="uil uil-link-alt"></i>
                     <span class="nunito-sans-300">Alterar responsável</span>
                 </li>
                 @if(selectedRowIds.size <= 1) {
-                    <li class="item" (click)="onOrderFinish()">
+                    <li class="item" (click)="onOrderFinish(finishOrder)">
                         <i class="uil uil-check"></i>
                         <span class="nunito-sans-300">Finalizar</span>
                     </li>
@@ -81,6 +81,10 @@
     <app-view-order-modal class="view-order" order={{currentOrder}}></app-view-order-modal>
 </ng-template>
 
-<ng-template #ResponsableOrder let-modal>
-    <app-responsable-order-modal></app-responsable-order-modal>
+<ng-template #responsableOrder let-modal>
+    <app-responsable-order-modal class="view-order"></app-responsable-order-modal>
+</ng-template>
+
+<ng-template #finishOrder let-modal>
+    <app-finish-order-modal class="view-order"></app-finish-order-modal>
 </ng-template>

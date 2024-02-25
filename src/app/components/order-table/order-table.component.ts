@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddOrderModalComponent } from '../modals/add-order-modal/add-order-modal.component';
 import { ViewOrderModalComponent } from '../modals/view-order-modal/view-order-modal.component';
 import { ResponsableOrderModalComponent } from '../modals/responsable-order-modal/responsable-order-modal.component';
+import { FinishOrderModalComponent } from '../modals/finish-order-modal/finish-order-modal.component';
 @Component({
   selector: 'app-order-table',
   standalone: true,
@@ -14,7 +15,8 @@ import { ResponsableOrderModalComponent } from '../modals/responsable-order-moda
     ClickOutsideDirective,
     AddOrderModalComponent, 
     ViewOrderModalComponent, 
-    ResponsableOrderModalComponent
+    ResponsableOrderModalComponent,
+    FinishOrderModalComponent
   ],
   templateUrl: './order-table.component.html',
   styleUrl: './order-table.component.css'
@@ -57,10 +59,6 @@ export class OrderTableComponent {
     return this.orders.filter(x => this.selectedRowIds.has(x.id));
   }
 
-  onLogClick() {
-    console.log(this.getSelectedRows());
-  }
-
   // CONTEXT MENU CODE
 
   rightPanelStyle: any = {}
@@ -92,12 +90,12 @@ export class OrderTableComponent {
     this.open(orderView);
   }
 
-  onOrderChangeResponsable(ResponsableOrder: any) {
-    this.open(ResponsableOrder);
+  onOrderChangeResponsable(responsableOrder: any) {
+    this.open(responsableOrder);
   }
   
-  onOrderFinish() {
-    console.log(this.currentOrder.id);
+  onOrderFinish(finishOrder: any) {
+    this.open(finishOrder);
   }
 
   onOrderDelete() {
