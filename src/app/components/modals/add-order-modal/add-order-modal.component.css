@@ -17,9 +17,7 @@
     border-color: #b6b6b6;
 }
 
-select:invalid {
-    color: gray;
-}
+
 
 textarea {
     resize: none;

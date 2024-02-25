@@ -9,5 +9,4 @@ import { OrderTableComponent } from '../../components/order-table/order-table.co
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-
 }

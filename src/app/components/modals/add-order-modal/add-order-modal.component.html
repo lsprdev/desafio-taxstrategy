@@ -4,10 +4,7 @@
         <form #addform="ngForm" (ngSubmit)="onSubmit(addform)">
             <div class="form-group">
                 <label class="nunito-sans mb-1" for="equipament-type">Tipo de equipamento</label>
-                <select class="form-control p-3 nunito-sans" name="type" id="type"
-                [(ngModel)]="order.type" ngModel
-                >
-                    <option value="0" disabled selected>Selecionar</option>
+                <select class="form-control form-select p-3 nunito-sans" name="type" id="type" [(ngModel)]="order.type" ngModel>
                     <option value="TV">TV</option>
                     <option value="Celular">Celular</option>
                     <option value="Desktop">Desktop</option>
