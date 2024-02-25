@@ -2,14 +2,23 @@ import { Component } from '@angular/core';
 import mockOrders from './mock-data';
 import { NgStyle } from '@angular/common';
 import { ClickOutsideDirective } from './click-outside.directive';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddOrderModalComponent } from '../modals/add-order-modal/add-order-modal.component';
+import { ViewOrderModalComponent } from '../modals/view-order-modal/view-order-modal.component';
 @Component({
   selector: 'app-order-table',
   standalone: true,
-  imports: [NgStyle, ClickOutsideDirective],
+  imports: [NgStyle, ClickOutsideDirective, AddOrderModalComponent, ViewOrderModalComponent],
   templateUrl: './order-table.component.html',
   styleUrl: './order-table.component.css'
 })
 export class OrderTableComponent {
+  constructor(private modalService: NgbModal) { }
+
+  public open(modal: any): void {
+    this.modalService.open(modal, { centered: true, animation: false });
+  }
+
   // Equipamento(TV, Celular, Desktop, Monitor, Notebook), Início, Previsão de  entrega, Problema apresentado, Funcionário responsável, Status.
   orders = mockOrders();
   
@@ -62,7 +71,7 @@ export class OrderTableComponent {
         'left.px': ($event.clientX),
         'top.px': ($event.clientY)
       };
-      this.currentOrder = order;
+      this.currentOrder = JSON.stringify(order);
     }
   }
 
@@ -72,8 +81,8 @@ export class OrderTableComponent {
     };
   }
 
-  onOrderView() {
-    console.log(this.currentOrder.id);
+  onOrderView(orderView: any) {
+    this.open(orderView);
   }
 
   onOrderChangeResponsable() {

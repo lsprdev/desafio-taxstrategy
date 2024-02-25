@@ -16,6 +16,7 @@ export class AddOrderModalComponent {
     description: '',
     initialDate: '',
     endDate: '',
+    status: 'Em andamento',
   };
   constructor(private router: Router) { }
 

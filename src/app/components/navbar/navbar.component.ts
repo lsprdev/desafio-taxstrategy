@@ -10,7 +10,7 @@ import { AddOrderModalComponent } from '../modals/add-order-modal/add-order-moda
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [FullButtonComponent, StrokeButtonComponent, ButtonComponent, AddOrderModalComponent],
+  imports: [ButtonComponent, AddOrderModalComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

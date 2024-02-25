@@ -53,7 +53,7 @@
     <div class="wrapper">
         <div class="content">
             <ul class="menu">
-                <li class="item" (click)="onOrderView()">
+                <li class="item" (click)="onOrderView(orderView)">
                     <i class="uil uil-eye"></i>
                     <span class="nunito-sans-300">Ver mais</span>
                 </li>
@@ -73,3 +73,6 @@
         </div>
     </div>
 </div>
+<ng-template #orderView let-modal>
+    <app-view-order-modal order={{currentOrder}}></app-view-order-modal>
+</ng-template>

@@ -1,10 +1,10 @@
 <div class="login-box">
     <div class="m-5">
-        <h2 class="nunito-sans">Adicionar ordem de serviço</h2>
-        <form #addform="ngForm" (ngSubmit)="onSubmit(addform)">
+        <h2 class="nunito-sans">Ordem de serviço {{ order.id }}</h2>
+        <form >
             <div class="form-group">
                 <label class="nunito-sans mb-1" for="type">Tipo de equipamento</label>
-                <select class="form-control form-select p-3 nunito-sans" name="type" id="type" [(ngModel)]="order.type" ngModel>
+                <select class="form-control form-select p-3 nunito-sans" name="type" id="type" value={{order.equipment}} disabled>
                     <option value="TV">TV</option>
                     <option value="Celular">Celular</option>
                     <option value="Desktop">Desktop</option>
@@ -14,27 +14,22 @@
             </div>
             <div class="form-group mt-2">
                 <label class="nunito-sans mb-1" for="description">Descrição do problema</label>
-                <textarea class="form-control p-3 nunito-sans" placeholder="Ex: Tela Trocada" name="description" id="" cols="30" rows="10"
-                [(ngModel)]="order.description" ngModel
-                ></textarea>
+                <textarea class="form-control p-3 nunito-sans" placeholder="Ex: Tela Trocada" name="description" id=""
+                    cols="30" rows="10" value={{order.problem}} disabled></textarea>
             </div>
             <div class="d-flex justify-content-between form-group mt-2">
                 <div class="form-group ">
                     <label class="nunito-sans mb-1" for="initialDate">Data de recebimento</label>
-                    <input class="form-control p-3 nunito-sans date-input"  type="date" name="initialDate" id=""
-                    [(ngModel)]="order.initialDate" ngModel
-                    >
+                    <input class="form-control p-3 nunito-sans date-input" type="date" name="initialDate" id="" value={{order.start}} disabled>
                 </div>
                 <div class="form-group mb-2">
                     <label class="nunito-sans mb-1" for="endDate">Previsão de entrega</label>
-                    <input class="form-control p-3 nunito-sans date-input"  type="date" name="endDate" id="" 
-                    [(ngModel)]="order.endDate" ngModel
-                    >
+                    <input class="form-control p-3 nunito-sans date-input" type="date" name="endDate" id="" value={{order.delivery}} disabled>
                 </div>
             </div>
             <div class="d-flex flex-row-reverse text-center mt-5">
                 <div class="m-2">
-                    <app-button type="submit" buttonString="Adicionar" buttonType="stroke"></app-button>
+                    <app-button type="submit" buttonString="Salvar" buttonType="stroke"></app-button>
                 </div>
                 <div class="m-2">
                     <app-button type="cancel" buttonString="Cancelar" buttonType="stroke"></app-button>
