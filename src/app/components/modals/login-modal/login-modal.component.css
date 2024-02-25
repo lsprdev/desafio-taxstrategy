@@ -14,3 +14,10 @@
 .form-check-input {
     border-color: #b6b6b6;
 }
+
+@media only screen and (max-width: 600px) {
+    .login-box {
+        max-width: 300px;
+        padding: 15px;
+    }
+}
