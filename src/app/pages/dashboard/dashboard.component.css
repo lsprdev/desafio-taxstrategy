@@ -1,8 +1,4 @@
 main {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    height: auto;
     width: 1273px;
     margin: 30px auto;
     background-color: #333333;

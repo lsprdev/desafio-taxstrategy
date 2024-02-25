@@ -59,8 +59,8 @@ export class OrderTableComponent {
       this.rightPanelStyle = {
         'display': 'block',
         'position': 'absolute',
-        'left': ($event.clientX - 330) + 'px',
-        'top': ($event.clientY - 240) + 'px'
+        'left.px': ($event.clientX),
+        'top.px': ($event.clientY)
       };
       this.currentOrder = order;
     }

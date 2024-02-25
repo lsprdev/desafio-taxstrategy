@@ -16,7 +16,6 @@
             <th scope="col">Problema apresentado</th>
             <th scope="col">Funcionário responsável</th>
             <th scope="col">Status</th>
-            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -26,7 +25,8 @@
             </tr>
         } @else {
             @for(order of orders; track order.id) {
-                <tr [class.selectedRow]="rowIsSelected(order.id)" (click)="onRowClick(order.id)" style="cursor: pointer;" (mouseup)="detectRightMouseClick($event, order)">
+                <tr [class.selectedRow]="rowIsSelected(order.id)" (click)="onRowClick(order.id)" style="cursor: pointer;" 
+                (mouseup)="detectRightMouseClick($event, order)">
                     <td>
                         @if(rowIsSelected(order.id)) {
                             <input class="form-check-input" type="checkbox" id="flexCheckDefault" checked>
@@ -44,13 +44,6 @@
                     } @else {
                         <td class="finalized-text">{{order.status}}</td>
                     }
-                    <td>
-                        <div class="menu">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </td>
                 </tr>
             }
         }
