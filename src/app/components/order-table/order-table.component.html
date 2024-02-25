@@ -35,10 +35,10 @@
                         }
                     </td>
                     <th scope="row">{{order.equipment}}</th>
-                    <td>{{order.start}}</td>
-                    <td>{{order.delivery}}</td>
-                    <td>{{order.problem}}</td>
-                    <td>{{order.employee}}</td>
+                    <td>{{order.startDate}}</td>
+                    <td>{{order.deliveryDate}}</td>
+                    <td>{{order.problemDescription}}</td>
+                    <td>{{order.personInCharge}}</td>
                     @if(order.status === "Em andamento") {
                         <td class="progress-text">{{order.status}}</td>
                     } @else {

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ButtonComponent } from '../../buttons/button/button.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-finish-order-modal',
@@ -9,7 +10,9 @@ import { ButtonComponent } from '../../buttons/button/button.component';
   styleUrl: './finish-order-modal.component.css'
 })
 export class FinishOrderModalComponent {
+  constructor(private modalService: NgbModal) {
+  }
   onCancel() {
-    console.log('bla')
+    this.modalService.dismissAll();
   }
 }

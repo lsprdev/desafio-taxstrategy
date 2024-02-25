@@ -4,7 +4,7 @@
         <form>
             <div class="form-group mt-3">
                 <label class="nunito-sans mb-1" for="type">Funcionários</label>
-                <select class="form-control form-select p-3 nunito-sans" name="type" id="type">
+                <select class="form-control form-select p-3 nunito-sans" name="personInCharge" id="type">
                     <option value="Celular">João</option>
                     <option value="Desktop">Maria</option>
                     <option value="Notebook">José</option>
@@ -15,7 +15,7 @@
                     <app-button type="submit" buttonString="Salvar" buttonType="stroke"></app-button>
                 </div>
                 <div class="m-2">
-                    <app-button type="cancel" buttonString="Cancelar" buttonType="stroke"></app-button>
+                    <app-button type="cancel" buttonString="Cancelar" buttonType="stroke" (click)="onCancel()"></app-button>
                 </div>
             </div>
         </form>
