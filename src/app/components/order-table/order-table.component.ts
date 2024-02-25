@@ -5,10 +5,17 @@ import { ClickOutsideDirective } from './click-outside.directive';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddOrderModalComponent } from '../modals/add-order-modal/add-order-modal.component';
 import { ViewOrderModalComponent } from '../modals/view-order-modal/view-order-modal.component';
+import { ResponsableOrderModalComponent } from '../modals/responsable-order-modal/responsable-order-modal.component';
 @Component({
   selector: 'app-order-table',
   standalone: true,
-  imports: [NgStyle, ClickOutsideDirective, AddOrderModalComponent, ViewOrderModalComponent],
+  imports: [
+    NgStyle, 
+    ClickOutsideDirective,
+    AddOrderModalComponent, 
+    ViewOrderModalComponent, 
+    ResponsableOrderModalComponent
+  ],
   templateUrl: './order-table.component.html',
   styleUrl: './order-table.component.css'
 })
@@ -85,8 +92,8 @@ export class OrderTableComponent {
     this.open(orderView);
   }
 
-  onOrderChangeResponsable() {
-    console.log(this.currentOrder.id);
+  onOrderChangeResponsable(ResponsableOrder: any) {
+    this.open(ResponsableOrder);
   }
   
   onOrderFinish() {
@@ -94,13 +101,14 @@ export class OrderTableComponent {
   }
 
   onOrderDelete() {
+    let currentOrder = JSON.parse(this.currentOrder);
     if(this.selectedRowIds.size > 0) {
       this.selectedRowIds.forEach(selected => {
         this.orders = this.orders.filter(order => order.id !== selected);
         this.closeContextMenu();
       });
     } else {
-      this.orders = this.orders.filter(x => x.id !== this.currentOrder.id); 
+      this.orders = this.orders.filter(x => x.id !== currentOrder.id); 
       this.closeContextMenu();
     }
     this.selectedRowIds.clear();
