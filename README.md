@@ -26,7 +26,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 ##### Clone este repositório:
     
 ```bash
-$ git clone git@github.com:lsprgabriel/desafio-taxstrategy.git
+$ git clone https://github.com/lsprgabriel/desafio-taxstrategy.git
 ```
 
 ##### Acesse a pasta do projeto no terminal/cmd:
