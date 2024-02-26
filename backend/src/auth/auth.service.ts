@@ -88,6 +88,7 @@ export class AuthService {
                     data: {
                         ...payload,
                         access_token: this.jwtService.sign(payload),
+                        status: 200,
                     }
                 };
             }

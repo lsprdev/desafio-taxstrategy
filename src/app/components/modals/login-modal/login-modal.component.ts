@@ -21,7 +21,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class LoginModalComponent {
   constructor(private router: Router) { }
-  
+
   admin = {
     email: '',
     password: '',
@@ -32,7 +32,6 @@ export class LoginModalComponent {
 
   private httpClient = inject(HttpClient);
   
-  
   async onSubmit(form: NgForm) {
     const headers = { 'Content-Type': 'application/json' };
     const user = {
@@ -42,11 +41,21 @@ export class LoginModalComponent {
     console.log(user);
     if (form.valid) {
       this.httpClient.post(`${this.baseUrl}/api/login`, user).subscribe((data: any) => {
-        console.log(data);
+        if (data.data.status === 200) {
+          console.log('Login bem sucedido!');
+          this.router.navigate(['/dashboard']);
+        } else {
+          console.log('Usuário não existe!');
+        }
       });
     } else {
       console.log('Dados inválido!');
     }
   }
 
+  ngOnInit() {
+    this.httpClient.get(`${this.baseUrl}/api/seed`).subscribe((data: any) => {
+      console.log(data);
+    });
+  }
 }
