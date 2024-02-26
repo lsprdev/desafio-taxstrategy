@@ -3,7 +3,7 @@ import { UsersService } from '../users/users.service';
 import { OrdersService } from '../orders/orders.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import data from './seed';
+import { orderData, adminData } from './seed';
 
 @Injectable()
 export class AuthService {
@@ -101,11 +101,14 @@ export class AuthService {
     async seedOrders() {
         try {
             const orders = await this.ordersService.orders({});
-            if (orders.length === 0) {
-                const newOrders = await this.ordersService.createOrders(data);
+            const admin = await this.usersService.users({});
+            if (orders.length === 0 && admin.length === 0) {
+                const newOrders = await this.ordersService.createOrders(orderData);
+                const newUser = await this.usersService.createUser(adminData);
                 return {
                     message: 'Pedidos criados com sucesso!',
-                    data: newOrders,
+                    orderData: newOrders,
+                    adminData: newUser,
                 };
             } else {
                 return {
@@ -198,4 +201,6 @@ export class AuthService {
             };
         }
     }
+
+
 }

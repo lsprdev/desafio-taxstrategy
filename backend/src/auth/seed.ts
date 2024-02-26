@@ -1,4 +1,4 @@
-let data = [
+let orderData = [
     {
         equipment: 'TV',
         startDate: '2021-08-10',
@@ -73,4 +73,10 @@ let data = [
     },
 ]
 
-export default data;
+const adminData = {
+    email: 'admin@admin.com',
+    password: 'admin',
+    isAdmin: true
+}
+
+export { orderData, adminData };
