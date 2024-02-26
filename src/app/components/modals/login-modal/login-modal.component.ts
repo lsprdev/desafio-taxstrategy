@@ -28,7 +28,7 @@ export class LoginModalComponent {
     remember: false
   };
 
-  baseUrl: string = 'http://10.158.0.2:3000';
+  baseUrl: string = 'http://localhost:3000';
 
   private httpClient = inject(HttpClient);
   
