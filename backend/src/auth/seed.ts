@@ -13,7 +13,7 @@ let orderData = [
         deliveryDate: '2021-08-15',
         problemDescription: 'Não liga',
         personInCharge: 'Maria',
-        status: 'Em andamento'
+        status: 'Finalizado'
     },
     {
         equipment: 'Desktop',
@@ -28,7 +28,7 @@ let orderData = [
         startDate: '2021-08-10',
         deliveryDate: '2021-08-15',
         problemDescription: 'Não liga',
-        personInCharge: 'Pedro',
+        personInCharge: 'José',
         status: 'Em andamento'
     },
     {
@@ -36,7 +36,7 @@ let orderData = [
         startDate: '2021-08-10',
         deliveryDate: '2021-08-15',
         problemDescription: 'Não liga',
-        personInCharge: 'Ana',
+        personInCharge: 'Maria',
         status: 'Em andamento'
     },
     {
@@ -61,15 +61,15 @@ let orderData = [
         deliveryDate: '2021-08-15',
         problemDescription: 'Tela quebrada',
         personInCharge: 'João',
-        status: 'Em andamento'
+        status: 'Finalizado'
     },
     {
         equipment: 'Desktop',
         startDate: '2021-08-10',
         deliveryDate: '2021-08-15',
         problemDescription: 'Tela quebrada',
-        personInCharge: 'João',
-        status: 'Em andamento'
+        personInCharge: 'Maria',
+        status: 'Finalizado'
     },
 ]
 

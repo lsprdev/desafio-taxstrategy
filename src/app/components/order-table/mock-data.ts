@@ -15,7 +15,7 @@ const mockOrders = () => [
         deliveryDate: '2021-08-15',
         problemDescription: 'Não liga',
         personInCharge: 'Maria',
-        status: 'Em andamento'
+        status: 'Finalizado'
     },
     {
         id: 3,
@@ -32,7 +32,7 @@ const mockOrders = () => [
         startDate: '2021-08-10',
         deliveryDate: '2021-08-15',
         problemDescription: 'Não liga',
-        personInCharge: 'Pedro',
+        personInCharge: 'José',
         status: 'Em andamento'
     },
     {
@@ -41,7 +41,7 @@ const mockOrders = () => [
         startDate: '2021-08-10',
         deliveryDate: '2021-08-15',
         problemDescription: 'Não liga',
-        personInCharge: 'Ana',
+        personInCharge: 'Maria',
         status: 'Em andamento'
     },
     {
@@ -69,7 +69,7 @@ const mockOrders = () => [
         deliveryDate: '2021-08-15',
         problemDescription: 'Tela quebrada',
         personInCharge: 'João',
-        status: 'Em andamento'
+        status: 'Finalizado'
     },
     {
         id: 9,
@@ -77,8 +77,8 @@ const mockOrders = () => [
         startDate: '2021-08-10',
         deliveryDate: '2021-08-15',
         problemDescription: 'Tela quebrada',
-        personInCharge: 'João',
-        status: 'Em andamento'
+        personInCharge: 'Maria',
+        status: 'Finalizado'
     },
 ];
 

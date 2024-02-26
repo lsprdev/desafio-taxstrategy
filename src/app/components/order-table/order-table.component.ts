@@ -29,7 +29,6 @@ export class OrderTableComponent {
   constructor(private modalService: NgbModal) { }
   
   baseUrl: string = 'http://localhost:3000';
-  data: any[] = []
   
   orders: any[] = [];
   
@@ -39,9 +38,7 @@ export class OrderTableComponent {
     this.closeContextMenu();
 
     this.httpClient.get(`${this.baseUrl}/api/orders`).subscribe((data: any) => {
-      this.data = data.data;
-      this.orders = data.data;
-      console.log(data.data);
+      this.orders = data.data > 0 ? data.data : mockOrders();
     });
   }
 
