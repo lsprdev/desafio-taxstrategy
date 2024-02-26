@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
+    volumes:
+      - .:/usr/src/app
     ports:
       - 8000:4200
     depends_on:
@@ -17,6 +19,8 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     restart: always
+    volumes:
+      - ./backend:/usr/src/app
     ports:
       - 3000:3000
     depends_on:
