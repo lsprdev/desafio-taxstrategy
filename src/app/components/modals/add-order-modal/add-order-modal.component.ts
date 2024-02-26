@@ -19,7 +19,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class AddOrderModalComponent {
   constructor(private modalService: NgbModal, private router: Router) {}
 
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = 'https://back.lsprlab.cloud';
 
   private httpClient = inject(HttpClient);
 

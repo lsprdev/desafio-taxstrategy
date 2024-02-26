@@ -55,22 +55,22 @@
             <ul class="menu">
                 @if(selectedRowIds.size <= 1) {
                     <li class="item" (click)="onOrderView(orderView)">
-                        <i class="uil uil-eye"></i>
+                        <img src="assets/icons/eye.svg" width="17px" class="uil uil-eye"/>
                         <span class="nunito-sans-300">Ver mais</span>
                     </li>
                 } 
                 <li class="item" (click)="onOrderChangeResponsable(responsableOrder)">
-                    <i class="uil uil-link-alt"></i>
+                    <img src="assets/icons/link.svg" width="17px" class="uil uil-eye" />
                     <span class="nunito-sans-300">Alterar responsável</span>
                 </li>
                 @if(selectedRowIds.size <= 1) {
                     <li class="item" (click)="onOrderFinish(finishOrder)">
-                        <i class="uil uil-check"></i>
+                        <img src="assets/icons/check.svg" width="17px" class="uil uil-eye" />
                         <span class="nunito-sans-300">Finalizar</span>
                     </li>
                 }
                 <li class="item" (click)="onOrderDelete()">
-                    <i class="uil uil-trash-alt"></i>
+                    <img src="assets/icons/trash.svg" width="17px" class="uil uil-eye" />
                     <span class="nunito-sans-300">Delete</span>
                 </li>
             </ul>
