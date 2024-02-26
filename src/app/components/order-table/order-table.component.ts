@@ -28,7 +28,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class OrderTableComponent {
   constructor(private modalService: NgbModal) { }
   
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = 'https://back.lsprlab.cloud';
   
   orders: any[] = [];
   

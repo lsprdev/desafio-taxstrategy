@@ -28,7 +28,7 @@ export class LoginModalComponent {
     remember: false
   };
 
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = 'https://back.lsprlab.cloud';
 
   private httpClient = inject(HttpClient);
   
