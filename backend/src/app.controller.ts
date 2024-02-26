@@ -31,10 +31,10 @@ export class AppController {
     return this.authService.signup(req.body);
   }
 
-  @UseGuards(LocalAuthGuard)
   @Post('api/login')
   async login(@Request() req) {
-    return this.authService.login(req.user);
+    console.log(req.body);
+    return this.authService.login(req.body);
   }
 
   @Get('api/orders')

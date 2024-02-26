@@ -1,28 +1,52 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { ButtonComponent } from '../../buttons/button/button.component';
 import { FullButtonComponent } from '../../buttons/full-button/full-button.component';
 import { StrokeButtonComponent } from '../../buttons/stroke-button/stroke-button.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-modal',
   standalone: true,
-  imports: [ButtonComponent, FullButtonComponent, StrokeButtonComponent, FormsModule],
+  imports: [
+    ButtonComponent, 
+    FullButtonComponent, 
+    StrokeButtonComponent, 
+    FormsModule,
+    HttpClientModule
+  ],
   templateUrl: './login-modal.component.html',
   styleUrl: './login-modal.component.css'
 })
 export class LoginModalComponent {
+  constructor(private router: Router) { }
+  
   admin = {
     email: '',
     password: '',
     remember: false
   };
-  constructor(private router: Router) { }
 
-  onSubmit(form: NgForm) {
-    console.log('Your form data : ', form.value);
-    this.router.navigateByUrl('dashboard');
+  baseUrl: string = 'http://localhost:3000';
+
+  private httpClient = inject(HttpClient);
+  
+  
+  async onSubmit(form: NgForm) {
+    const headers = { 'Content-Type': 'application/json' };
+    const user = {
+      email: form.value.email,
+      password: form.value.password
+    };
+    console.log(user);
+    if (form.valid) {
+      this.httpClient.post(`${this.baseUrl}/api/login`, user).subscribe((data: any) => {
+        console.log(data);
+      });
+    } else {
+      console.log('Dados inválido!');
+    }
   }
 
 }

@@ -69,6 +69,7 @@ export class AuthService {
     }
 
     async login(user: any) {
+        console.log(user);
         try {
             const userExists = await this.usersService.user({ email: user.email });
             if (!userExists) {
@@ -93,7 +94,7 @@ export class AuthService {
         } catch (error) {
             return {
                 message: 'Não foi possível realizar o login!',
-                data: {},
+                error: error,
             };
         }
     }
