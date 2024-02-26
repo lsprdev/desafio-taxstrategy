@@ -38,10 +38,6 @@ export class OrderTableComponent {
     this.httpClient.get(`${baseUrl}/api/orders`).subscribe((data: any) => {
       this.orders = data.data;
     });
-    
-    if (this.orders.length === 0) {
-      this.orders = mockOrders();
-    }
   }
 
   public open(modal: any): void {
