@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable, inject } from '@angular/core';
 import mockOrders from './mock-data';
 import { NgStyle } from '@angular/common';
 import { ClickOutsideDirective } from './click-outside.directive';
@@ -7,6 +7,9 @@ import { AddOrderModalComponent } from '../modals/add-order-modal/add-order-moda
 import { ViewOrderModalComponent } from '../modals/view-order-modal/view-order-modal.component';
 import { ResponsableOrderModalComponent } from '../modals/responsable-order-modal/responsable-order-modal.component';
 import { FinishOrderModalComponent } from '../modals/finish-order-modal/finish-order-modal.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
 @Component({
   selector: 'app-order-table',
   standalone: true,
@@ -16,13 +19,31 @@ import { FinishOrderModalComponent } from '../modals/finish-order-modal/finish-o
     AddOrderModalComponent, 
     ViewOrderModalComponent, 
     ResponsableOrderModalComponent,
-    FinishOrderModalComponent
+    FinishOrderModalComponent,
+    HttpClientModule 
   ],
   templateUrl: './order-table.component.html',
   styleUrl: './order-table.component.css'
 })
 export class OrderTableComponent {
   constructor(private modalService: NgbModal) { }
+  
+  baseUrl: string = 'http://localhost:3000';
+  data: any[] = []
+  
+  orders: any[] = [];
+  
+  private httpClient = inject(HttpClient);
+  
+  ngOnInit() {
+    this.closeContextMenu();
+
+    this.httpClient.get(`${this.baseUrl}/api/orders`).subscribe((data: any) => {
+      this.data = data.data;
+      this.orders = data.data;
+      console.log(data.data);
+    });
+  }
 
   public open(modal: any): void {
     this.modalService.open(modal, { centered: true, animation: false });
@@ -33,7 +54,6 @@ export class OrderTableComponent {
   }
 
   // Equipamento(TV, Celular, Desktop, Monitor, Notebook), Início, Previsão de  entrega, Problema apresentado, Funcionário responsável, Status.
-  orders = mockOrders();
   
   getInProcessOrders() {
     return this.orders.length > 0 ? this.orders.filter(order => order.status === 'Em andamento') : [];
@@ -68,9 +88,6 @@ export class OrderTableComponent {
   rightPanelStyle: any = {}
   currentOrder: any = {};
 
-  ngOnInit() {
-    this.closeContextMenu();
-  }
 
   detectRightMouseClick($event: any, order: any) {
     if ($event.which === 3) {
