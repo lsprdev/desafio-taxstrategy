@@ -5,6 +5,7 @@ import { StrokeButtonComponent } from '../../buttons/stroke-button/stroke-button
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import baseUrl from '../../../../baseUrl';
 
 @Component({
   selector: 'app-login-modal',
@@ -28,8 +29,6 @@ export class LoginModalComponent {
     remember: false
   };
 
-  baseUrl: string = 'https://back.lsprlab.cloud';
-
   private httpClient = inject(HttpClient);
   
   async onSubmit(form: NgForm) {
@@ -39,7 +38,7 @@ export class LoginModalComponent {
     };
 
     if (form.valid) {
-      this.httpClient.post(`${this.baseUrl}/api/login`, user).subscribe((data: any) => {
+      this.httpClient.post(`${baseUrl}/api/login`, user).subscribe((data: any) => {
         if (data.data.status === 200) {
           console.log('Login bem sucedido!');
           this.router.navigate(['/dashboard']);
@@ -53,6 +52,6 @@ export class LoginModalComponent {
   }
 
   ngOnInit() {
-    this.httpClient.get(`${this.baseUrl}/api/seed`).subscribe((data: any) => {});
+    this.httpClient.get(`${baseUrl}/api/seed`).subscribe((data: any) => {});
   }
 }

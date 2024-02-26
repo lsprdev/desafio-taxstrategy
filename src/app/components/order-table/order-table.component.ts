@@ -8,7 +8,7 @@ import { ViewOrderModalComponent } from '../modals/view-order-modal/view-order-m
 import { ResponsableOrderModalComponent } from '../modals/responsable-order-modal/responsable-order-modal.component';
 import { FinishOrderModalComponent } from '../modals/finish-order-modal/finish-order-modal.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import baseUrl from '../../../baseUrl';
 
 @Component({
   selector: 'app-order-table',
@@ -28,8 +28,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class OrderTableComponent {
   constructor(private modalService: NgbModal) { }
   
-  baseUrl: string = 'https://back.lsprlab.cloud';
-  
   orders: any[] = [];
   
   private httpClient = inject(HttpClient);
@@ -37,7 +35,7 @@ export class OrderTableComponent {
   ngOnInit() {
     this.closeContextMenu();
 
-    this.httpClient.get(`${this.baseUrl}/api/orders`).subscribe((data: any) => {
+    this.httpClient.get(`${baseUrl}/api/orders`).subscribe((data: any) => {
       this.orders = data.data;
     });
     

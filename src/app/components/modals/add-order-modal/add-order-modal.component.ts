@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import baseUrl from '../../../../baseUrl';
 
 @Component({
   selector: 'app-add-order-modal',
@@ -18,8 +19,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class AddOrderModalComponent {
   constructor(private modalService: NgbModal, private router: Router) {}
-
-  baseUrl: string = 'https://back.lsprlab.cloud';
 
   private httpClient = inject(HttpClient);
 
@@ -41,12 +40,12 @@ export class AddOrderModalComponent {
         status: 'Em andamento'
       }
 
-      this.httpClient.post(`${this.baseUrl}/api/orders`, orders).subscribe((data: any) => {
+      this.httpClient.post(`${baseUrl}/api/orders`, orders).subscribe((data: any) => {
         console.log(data.status);
         if (data.status === 200) {
           console.log('Ordem cadastrada com sucesso!');
           this.modalService.dismissAll();
-          this.router.navigate(['/dashboard']);
+          window.location.reload();
         } else {
           console.log('Erro ao cadastrar ordem!');
         }
