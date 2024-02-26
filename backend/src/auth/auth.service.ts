@@ -1,12 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
+import { OrdersService } from '../orders/orders.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
+import data from './seed';
 
 @Injectable()
 export class AuthService {
     constructor(
         private usersService: UsersService,
+        private ordersService: OrdersService,
         private jwtService: JwtService,
     ) { }
 
@@ -28,6 +31,7 @@ export class AuthService {
         }
         return null;
     }
+
 
     async signup(user: any) {
         try {
@@ -94,71 +98,102 @@ export class AuthService {
         }
     }
 
-    // /api/users payload
-    async getUsers() {
+    async seedOrders() {
         try {
-            const users = await this.usersService.users({});
-            return {
-                message: 'Usuários encontrados com sucesso!',
-                data: users,
-            };
-        } catch (error) {
-            return {
-                message: 'Usuários não encontrados!',
-                data: {},
-            };
-        }
-    }
-
-    // /api/users/:id payload
-    async getUser(id: any) {
-        try {
-            const user = await this.usersService.user({ id: id });
-            return {
-                message: 'Usuário encontrado com sucesso!',
-                data: user,
-            };
-        } catch (error) {
-            return {
-                message: 'Usuário não encontrado!',
-                data: {},
-            };
-        }
-    }
-
-    async updateUser(id: any, user: any) {
-        try {
-            if (user.password) {
-                user.password = await this.hashPassword(user.password);
+            const orders = await this.ordersService.orders({});
+            if (orders.length === 0) {
+                const newOrders = await this.ordersService.createOrders(data);
+                return {
+                    message: 'Pedidos criados com sucesso!',
+                    data: newOrders,
+                };
+            } else {
+                return {
+                    message: 'Pedidos já existem!',
+                    data: {},
+                };
             }
-            const updatedUser = await this.usersService.updateUser({
-                where: { id: id },
-                data: user,
-            });
-            return {
-                message: 'Usuário atualizado com sucesso!',
-                data: updatedUser,
-            };
         } catch (error) {
             return {
-                message: 'Não foi possível atualizar o usuário!',
+                message: 'Não foi possível criar os pedidos!',
                 data: {},
             };
         }
     }
 
-    async deleteUser(id: any) {
+    async createOrder(order: any) {
         try {
-            const deletedUser = await this.usersService.deleteUser({
-                id: id,
-            });
+            const newOrder = await this.ordersService.createOrder(order);
             return {
-                message: 'Usuário deletado com sucesso!',
-                data: deletedUser,
+                message: 'Pedido criado com sucesso!',
+                data: newOrder,
             };
         } catch (error) {
             return {
-                message: 'Não foi possível deletar o usuário!',
+                message: 'Não foi possível criar o pedido!',
+                data: {},
+            };
+        }
+    }
+
+    async getOrders() {
+        try {
+            const orders = await this.ordersService.orders({});
+            return {
+                message: 'Pedidos encontrados com sucesso!',
+                data: orders,
+            };
+        } catch (error) {
+            return {
+                message: 'Pedidos não encontrados!',
+                data: {},
+            };
+        }
+    }
+
+    async getOrder(id: any) {
+        try {
+            const order = await this.ordersService.order({ id: id });
+            return {
+                message: 'Pedido encontrado com sucesso!',
+                data: order,
+            };
+        } catch (error) {
+            return {
+                message: 'Pedido não encontrado!',
+                data: {},
+            };
+        }
+    }
+
+    async updateOrder(id: any, order: any) {
+        try {
+            const updatedOrder = await this.ordersService.updateOrder({
+                where: { id: id },
+                data: order,
+            });
+            return {
+                message: 'Pedido atualizado com sucesso!',
+                data: updatedOrder,
+            };
+        } catch (error) {
+            return {
+                message: 'Não foi possível atualizar o pedido!',
+                data: {},
+            };
+        }
+    }
+
+    async deleteOrder(id: any) {
+        try {
+            const deletedOrder = await this.ordersService.deleteOrder({ id: id });
+            return {
+                message: 'Pedido deletado com sucesso!',
+                data: deletedOrder,
+            };
+        } catch (error) {
+            return {
+                message: 'Não foi possível deletar o pedido!',
                 data: {},
             };
         }

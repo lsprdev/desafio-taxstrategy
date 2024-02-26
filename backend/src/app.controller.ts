@@ -20,6 +20,11 @@ export class AppController {
       },
     };
   }
+ 
+  @Get('api/seed')
+  async seed() {
+    return this.authService.seedOrders();
+  }
 
   @Post('api/signup')
   async signup(@Request() req) {
@@ -32,31 +37,28 @@ export class AppController {
     return this.authService.login(req.user);
   }
 
-  @AdminOnly()
-  @UseGuards(JwtAuthGuard, AdminGuard)
-  @Get('api/users')
-  async users(@Request() req) {
-    return this.authService.getUsers();
+  @Get('api/orders')
+  async orders(@Request() req) {
+    return this.authService.getOrders();
   }
 
-  @AdminOnly()
-  @UseGuards(JwtAuthGuard, AdminGuard)
-  @Get('api/user/:id')
-  async user(@Request() req) {
-    return this.authService.getUser(req.params.id);
+  @Get('api/orders/:id')
+  async order(@Request() req) {
+    return this.authService.getOrder(req.params.id);
   }
 
-  @AdminOnly()
-  @UseGuards(JwtAuthGuard, AdminGuard)
-  @Put('api/user/:id')
-  async updateUser(@Request() req) {
-    return this.authService.updateUser(req.params.id, req.body);
+  @Post('api/orders')
+  async createOrder(@Request() req) {
+    return this.authService.createOrder(req.body);
   }
 
-  @AdminOnly()
-  @UseGuards(JwtAuthGuard, AdminGuard)
-  @Delete('api/user/:id')
-  async deleteUser(@Request() req) {
-    return this.authService.deleteUser(req.params.id);
+  @Put('api/orders/:id')
+  async updateOrder(@Request() req) {
+    return this.authService.updateOrder(req.params.id, req.body);
+  }
+
+  @Delete('api/orders/:id')
+  async deleteOrder(@Request() req) {
+    return this.authService.deleteOrder(req.params.id);
   }
 }

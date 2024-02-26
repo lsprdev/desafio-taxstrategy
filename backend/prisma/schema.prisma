@@ -20,8 +20,8 @@ model User {
 model Order {
   id String  @id @default(auto()) @map("_id") @db.ObjectId
   equipment String
-  startDate DateTime
-  deliveryDate DateTime
+  startDate String
+  deliveryDate String
   problemDescription String
   personInCharge String?
   status String

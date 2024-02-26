@@ -37,6 +37,12 @@ export class OrdersService {
         });
     }
 
+    async createOrders(data: Prisma.OrderCreateInput[]): Promise<Prisma.BatchPayload> {
+        return this.prisma.order.createMany({
+            data,
+        });
+    }
+
     async updateOrder(params: {
         where: Prisma.OrderWhereUniqueInput;
         data: Prisma.OrderUpdateInput;
