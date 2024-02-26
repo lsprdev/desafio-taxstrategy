@@ -132,6 +132,7 @@ export class AuthService {
             return {
                 message: 'Pedido criado com sucesso!',
                 data: newOrder,
+                status: 200,
             };
         } catch (error) {
             return {

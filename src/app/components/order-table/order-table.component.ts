@@ -38,8 +38,12 @@ export class OrderTableComponent {
     this.closeContextMenu();
 
     this.httpClient.get(`${this.baseUrl}/api/orders`).subscribe((data: any) => {
-      this.orders = data.data > 0 ? data.data : mockOrders();
+      this.orders = data.data;
     });
+    
+    if (this.orders.length === 0) {
+      this.orders = mockOrders();
+    }
   }
 
   public open(modal: any): void {

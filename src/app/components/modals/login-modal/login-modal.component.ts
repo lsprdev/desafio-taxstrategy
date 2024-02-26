@@ -33,12 +33,11 @@ export class LoginModalComponent {
   private httpClient = inject(HttpClient);
   
   async onSubmit(form: NgForm) {
-    const headers = { 'Content-Type': 'application/json' };
     const user = {
       email: form.value.email,
       password: form.value.password
     };
-    console.log(user);
+
     if (form.valid) {
       this.httpClient.post(`${this.baseUrl}/api/login`, user).subscribe((data: any) => {
         if (data.data.status === 200) {
@@ -54,8 +53,6 @@ export class LoginModalComponent {
   }
 
   ngOnInit() {
-    this.httpClient.get(`${this.baseUrl}/api/seed`).subscribe((data: any) => {
-      console.log(data);
-    });
+    this.httpClient.get(`${this.baseUrl}/api/seed`).subscribe((data: any) => {});
   }
 }
