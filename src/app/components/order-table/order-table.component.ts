@@ -123,10 +123,30 @@ export class OrderTableComponent {
     if(this.selectedRowIds.size > 0) {
       this.selectedRowIds.forEach(selected => {
         this.orders = this.orders.filter(order => order.id !== selected);
+
+        this.httpClient.delete(`${baseUrl}/api/orders/${selected}`).subscribe((data: any) => {
+          console.log(data.status);
+          if (data.status === 200) {
+            console.log('Ordem deletada com sucesso!');
+          } else {
+            console.log('Erro ao deletar ordem!');
+          }
+        });
+
         this.closeContextMenu();
       });
     } else {
       this.orders = this.orders.filter(x => x.id !== currentOrder.id); 
+
+      this.httpClient.delete(`${baseUrl}/api/orders/${currentOrder.id}`).subscribe((data: any) => {
+        console.log(data.status);
+        if (data.status === 200) {
+          console.log('Ordem deletada com sucesso!');
+        } else {
+          console.log('Erro ao deletar ordem!');
+        }
+      });
+
       this.closeContextMenu();
     }
     this.selectedRowIds.clear();
