@@ -58,10 +58,12 @@ export class OrderTableComponent {
     return this.orders.length > 0 ? this.orders.filter(order => order.status === 'Finalizado') : [];
   }
 
-  selectedRowIds: Set<number> = new Set<number>();
+  selectedRowIds: Set<string> = new Set<string>();
+  selectedOrders: any;
   selectedId: string = '';
 
-  onRowClick(id: number) {
+  onRowClick(id: string) {
+    console.log(this.selectedOrders);
     if (this.selectedRowIds.has(id)) {
       this.selectedRowIds.delete(id);
     }
@@ -70,7 +72,8 @@ export class OrderTableComponent {
     }
   }
 
-  rowIsSelected(id: number) {
+  rowIsSelected(id: string) {
+    this.selectedOrders = JSON.stringify(this.orders.filter(x => this.selectedRowIds.has(x.id)));
     return this.selectedRowIds.has(id);
   }
 

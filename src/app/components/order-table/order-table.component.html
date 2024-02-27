@@ -82,7 +82,7 @@
 </ng-template>
 
 <ng-template #responsableOrder let-modal>
-    <app-responsable-order-modal class="view-order"></app-responsable-order-modal>
+    <app-responsable-order-modal currentOrder={{currentOrder}} selectedOrders={{selectedOrders}} class="view-order"></app-responsable-order-modal>
 </ng-template>
 
 <ng-template #finishOrder let-modal>
