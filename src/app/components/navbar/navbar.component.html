@@ -3,7 +3,7 @@
         <a href="/">
             <img class="m-4 navbar-brand" height="38px" width="249" src="assets/tax.svg">
         </a>
-        @if(url !== "login" || token) {
+        @if(url !== "login") {
         <div class="flex-row-reverse" id="navbarNav">
             <ul class="navbar-nav">
                 <app-button class="m-4" buttonString="Adicionar" buttonType="full" (click)='open(addOrder)'></app-button>

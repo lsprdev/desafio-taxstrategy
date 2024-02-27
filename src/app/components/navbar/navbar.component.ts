@@ -15,7 +15,7 @@ import { AddOrderModalComponent } from '../modals/add-order-modal/add-order-moda
 export class NavbarComponent {
   constructor(private router: Router, private modalService: NgbModal) { }
   
-  token = sessionStorage.getItem('token') || '';
+
   url: string = "";
   
   public open(modal: any): void {
