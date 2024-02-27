@@ -11,6 +11,11 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
   constructor(private router: Router) { }
-  
-  
+  token = sessionStorage.getItem('token') || '';
+
+  ngOnInit() {
+    if (this.token === '') {
+      this.router.navigate(['/']);
+    }
+  }
 }
