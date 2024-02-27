@@ -72,7 +72,8 @@ export class AuthService {
         console.log(user);
         try {
             const userExists = await this.usersService.user({ email: user.email });
-            if (!userExists) {
+            const passwordMatch = await this.comparePasswords(user.password, userExists.password);
+            if (!userExists || !passwordMatch) {
                 return {
                     message: 'Usuário não existe!',
                     data: {},
@@ -100,7 +101,7 @@ export class AuthService {
         }
     }
 
-    async seedOrders() {
+    async seed() {
         try {
             const orders = await this.ordersService.orders({});
             const admin = await this.usersService.users({});

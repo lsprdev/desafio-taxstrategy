@@ -23,7 +23,7 @@ export class AppController {
  
   @Get('api/seed')
   async seed() {
-    return this.authService.seedOrders();
+    return this.authService.seed();
   }
 
   @Post('api/signup')

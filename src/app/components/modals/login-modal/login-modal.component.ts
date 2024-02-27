@@ -40,6 +40,7 @@ export class LoginModalComponent {
     if (form.valid) {
       this.httpClient.post(`${baseUrl}/api/login`, user).subscribe((data: any) => {
         if (data.data.status === 200) {
+          console.log(data.data.access_token)
           console.log('Login bem sucedido!');
           this.router.navigate(['/dashboard']);
         } else {

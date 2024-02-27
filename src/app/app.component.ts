@@ -19,5 +19,5 @@ import { FormsModule } from '@angular/forms';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'repair-strategy';
+  title = 'tax-strategy';
 }
