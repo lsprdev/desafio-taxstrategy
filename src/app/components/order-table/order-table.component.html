@@ -78,7 +78,7 @@
     </div>
 </div>
 <ng-template #orderView let-modal>
-    <app-view-order-modal class="view-order" order={{currentOrder}}></app-view-order-modal>
+    <app-view-order-modal class="view-order" currentOrder={{currentOrder}}></app-view-order-modal>
 </ng-template>
 
 <ng-template #responsableOrder let-modal>
@@ -86,5 +86,5 @@
 </ng-template>
 
 <ng-template #finishOrder let-modal>
-    <app-finish-order-modal class="view-order"></app-finish-order-modal>
+    <app-finish-order-modal currentOrder={{currentOrder}} class="view-order"></app-finish-order-modal>
 </ng-template>

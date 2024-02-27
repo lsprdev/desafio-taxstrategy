@@ -13,11 +13,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ViewOrderModalComponent {
   constructor(private modalService: NgbModal) {}
-  @Input({ required: true }) order: any = {};
+  @Input({ required: true }) currentOrder: any = {};
 
   ngOnInit() {
-    this.order = JSON.parse(this.order);
+    this.currentOrder = JSON.parse(this.currentOrder);
   }
+  
   onCancel() {
     this.modalService.dismissAll();
   }
