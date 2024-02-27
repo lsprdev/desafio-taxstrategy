@@ -74,8 +74,8 @@ let orderData = [
 ]
 
 const adminData = {
-    email: 'admin@admin.com',
-    password: 'admin',
+    email: 'tax@tax.com',
+    password: 'taxadmin123',
     isAdmin: true
 }
 

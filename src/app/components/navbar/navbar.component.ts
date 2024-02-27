@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute, RoutesRecognized } from '@angular/router';
-import { ActivationStart, RouterOutlet } from '@angular/router';
-import { FullButtonComponent } from '../buttons/full-button/full-button.component';
-import { StrokeButtonComponent } from '../buttons/stroke-button/stroke-button.component';
+import { Router } from '@angular/router';
+import { ActivationStart } from '@angular/router';
 import { ButtonComponent } from '../buttons/button/button.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddOrderModalComponent } from '../modals/add-order-modal/add-order-modal.component';
@@ -17,6 +15,7 @@ import { AddOrderModalComponent } from '../modals/add-order-modal/add-order-moda
 export class NavbarComponent {
   constructor(private router: Router, private modalService: NgbModal) { }
   
+  token = sessionStorage.getItem('token') || '';
   url: string = "";
   
   public open(modal: any): void {

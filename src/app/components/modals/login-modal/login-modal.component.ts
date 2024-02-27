@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '../../buttons/button/button.component';
 import { FullButtonComponent } from '../../buttons/full-button/full-button.component';
 import { StrokeButtonComponent } from '../../buttons/stroke-button/stroke-button.component';
@@ -42,6 +42,7 @@ export class LoginModalComponent {
         if (data.data.status === 200) {
           console.log(data.data.access_token)
           console.log('Login bem sucedido!');
+          sessionStorage.setItem('token', data.data.access_token);
           this.router.navigate(['/dashboard']);
         } else {
           console.log('Usuário não existe!');

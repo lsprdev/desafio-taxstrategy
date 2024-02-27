@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OrderTableComponent } from '../../components/order-table/order-table.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,4 +10,12 @@ import { OrderTableComponent } from '../../components/order-table/order-table.co
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  constructor(private router: Router) { }
+  token = sessionStorage.getItem('token') || '';
+
+  ngOnInit() {
+    if (this.token === '') {
+      this.router.navigate(['/']);
+    }
+  }
 }
