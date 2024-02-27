@@ -42,7 +42,7 @@ export class LoginModalComponent {
         if (data.data.status === 200) {
           console.log(data.data.access_token)
           console.log('Login bem sucedido!');
-          
+          sessionStorage.setItem('token', data.data.access_token);
           this.router.navigate(['/dashboard']);
         } else {
           console.log('Usuário não existe!');
