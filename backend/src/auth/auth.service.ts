@@ -107,7 +107,7 @@ export class AuthService {
             const admin = await this.usersService.users({});
             if (orders.length === 0 && admin.length === 0) {
                 const newOrders = await this.ordersService.createOrders(orderData);
-                const newUser = await this.usersService.createUser(adminData);
+                const newUser = await this.signup(adminData);
                 return {
                     message: 'Pedidos criados com sucesso!',
                     orderData: newOrders,
